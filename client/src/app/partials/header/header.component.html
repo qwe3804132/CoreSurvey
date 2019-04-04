@@ -41,6 +41,12 @@
         >
       </li>
 
+      <li *ngIf="isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLink="/my-info"
+          ><i class="fa fa-lg fa-phone"></i> My Info</a>
+        
+      </li>
+
 
         <li *ngIf="isLoggedIn()" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline"><i class="fas fa-lg fa-user"></i>
           Welcome, {{ user.displayName }}</li>

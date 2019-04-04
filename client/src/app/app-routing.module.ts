@@ -15,6 +15,7 @@ import { ContactDeleteComponent } from './contacts/contact-delete/contact-delete
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { MyInfoComponent } from './pages/my-info/my-info.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {title: 'Home'}},
@@ -30,6 +31,8 @@ const routes: Routes = [
 
   {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   {path: 'login', component: LoginComponent, data: {title: 'Register'}},
+  {path: 'my-info', component: MyInfoComponent, data: {title: 'my Info'}},
+
   {path: 'logout', redirectTo: '/login', pathMatch: 'full'},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},

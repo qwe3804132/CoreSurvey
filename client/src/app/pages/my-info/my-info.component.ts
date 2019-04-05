@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/models/contact';
+import{User} from 'src/app/models/user';
 import { ContactListService } from 'src/app/services/contact-list.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -11,27 +13,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-info.component.css']
 })
 export class MyInfoComponent implements OnInit {
-  contacts: Contact[];
+  user: User;
 
   constructor(  
     private contactListService: ContactListService,
     private flashMessage: FlashMessagesService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
+
     ) { }
 
   ngOnInit() {
-    this.contacts = new Array<Contact>();
+    this.user = new User();
 
   }
 
-  displayMyInfo(): void {
-    this.contactListService.getList().subscribe(data => {
-      if(data.success) {
-        this.contacts = data.contactList;
-      } else {
-        this.flashMessage.show('User must be logged-in', {cssClass: 'alert-danger', timeOut: 3000});
-      }
-    });
+  isLoggedIn(): boolean {
+    const result = this.authService.loggedIn();
+    if(result) {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
+    return result;
   }
-
 }

@@ -20,8 +20,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactDeleteComponent } from './contacts/contact-delete/contact-delete.component';
 import { MyInfoComponent } from './pages/my-info/my-info.component';
-import { SurveyListComponent } from './pages/survey-list/survey-list.component';
 import { TakeSurveyComponent } from './pages/take-survey/take-survey.component';
+import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+import { SurveyDeleteComponent } from './surveys/survey-delete/survey-delete.component';
+import { SurveyListComponent } from './surveys/survey-list/survey-list.component';
 
 // Services
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
@@ -51,8 +53,10 @@ export function jwtTokenGetter() {
     ContactDetailsComponent,
     ContactDeleteComponent,
     MyInfoComponent,
-    SurveyListComponent,
-    TakeSurveyComponent
+    TakeSurveyComponent,
+    SurveyDetailsComponent,
+    SurveyDeleteComponent,
+    SurveyListComponent
   ],
   imports: [
     BrowserModule,

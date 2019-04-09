@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MyInfoComponent implements OnInit {
   user: User;
 
-  constructor(  
+  constructor(
     private contactListService: ContactListService,
     private flashMessage: FlashMessagesService,
     private router: Router,
@@ -30,7 +30,7 @@ export class MyInfoComponent implements OnInit {
 
   isLoggedIn(): boolean {
     const result = this.authService.loggedIn();
-    if(result) {
+    if (result) {
       this.user = JSON.parse(localStorage.getItem('user'));
     }
     return result;
